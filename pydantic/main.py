@@ -856,11 +856,6 @@ class BaseModel(Representation, metaclass=ModelMetaclass):
     def __repr_args__(self) -> 'ReprArgs':
         return self.__dict__.items()  # type: ignore
 
-    @property
-    def fields(self) -> Dict[str, ModelField]:
-        warnings.warn('`fields` attribute is deprecated, use `__fields__` instead', DeprecationWarning)
-        return self.__fields__
-
     def to_string(self, pretty: bool = False) -> str:
         warnings.warn('`model.to_string()` method is deprecated, use `str(model)` instead', DeprecationWarning)
         return str(self)
